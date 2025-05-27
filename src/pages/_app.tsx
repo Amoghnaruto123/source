@@ -3,15 +3,15 @@ import type { AppProps } from 'next/app';
 import { Inter } from 'next/font/google';
 import { Footer } from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
-import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 const inter = Inter({ subsets: ['latin'] });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const pathname = usePathname();
+  const router = useRouter();
   
   // Don't show navbar and footer on login and signup pages
-  const isAuthPage = pathname === '/login' || pathname === '/signup';
+  const isAuthPage = router.pathname === '/login' || router.pathname === '/signup';
 
   return (
     <div className={`${inter.className} flex min-h-screen flex-col font-ubuntu`}>

@@ -1,7 +1,5 @@
-"use client";
-
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
@@ -197,12 +195,6 @@ const Signup = () => {
           <div className="mt-6">
             <p className="text-center text-xs text-gray-600">
               By signing up, you confirm that you've read and accepted our Terms and Privacy Policy
-            </p>
-            <p className="text-center text-xs text-gray-600 mt-2">
-              Need help? Contact{" "}
-              <a href="mailto:support@source.express" className="text-orange-600 hover:underline">
-                support@source.express
-              </a>
             </p>
           </div>
         </div>
