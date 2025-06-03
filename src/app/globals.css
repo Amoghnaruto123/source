@@ -133,7 +133,7 @@
   }
   /* Text gradient for hero section */
   .text-gradient {
-    background: linear-gradient(90deg, #f97316, #ea580c);
+    background: linear-gradient(90deg, #f9a826, #f97316);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline;

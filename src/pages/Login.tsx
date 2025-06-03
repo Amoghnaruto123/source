@@ -1,18 +1,10 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { ArrowLeft } from "lucide-react";
-
-interface LoginFormData {
-  email: string;
-  password: string;
-  rememberMe: boolean;
-}
 
 const Login = () => {
   const router = useRouter();
@@ -157,4 +149,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login; 

@@ -7,11 +7,11 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const navLinks = [
-  { name: "Home", href: "#" },
+  { name: "Home", href: "/" },
   { name: "About Us", href: "#about" },
   { name: "How It Works", href: "#how-it-works" },
   { name: "Industries We Serve", href: "#industries" },
-  { name: "FAQ", href: "#faq" },
+  { name: "Resources", href: "/resources" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -44,23 +44,33 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo - Centered in mobile, left in desktop */}
         <div className="md:flex-none flex-1 flex md:justify-start justify-center">
-          <a href="#" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <span className="text-2xl font-bold tracking-tight font-ubuntu">
               <span className="source-logo-full">SourceExpress</span><span className="source-logo-tm">™</span>
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="nav-link text-gray-700 hover:text-orange-600 font-medium text-sm transition-colors"
-            >
-              {link.name}
-            </a>
+            link.href.startsWith('#') ? (
+              <a
+                key={link.name}
+                href={link.href}
+                className="nav-link text-gray-700 hover:text-orange-600 font-medium text-sm transition-colors"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="nav-link text-gray-700 hover:text-orange-600 font-medium text-sm transition-colors"
+              >
+                {link.name}
+              </Link>
+            )
           ))}
         </nav>
 
@@ -96,14 +106,25 @@ export default function Navbar() {
             <div className="px-6 py-6 space-y-4">
               <nav className="flex flex-col space-y-4">
                 {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="text-gray-700 hover:text-orange-600 font-medium"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.name}
-                  </a>
+                  link.href.startsWith('#') ? (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      className="text-gray-700 hover:text-orange-600 font-medium"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="text-gray-700 hover:text-orange-600 font-medium"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  )
                 ))}
               </nav>
               <div className="flex flex-col space-y-3 pt-4 border-t border-gray-300">
